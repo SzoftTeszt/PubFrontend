@@ -1,0 +1,29 @@
+<!-- <p>{{drinks|json}}</p> -->
+
+<div class="row">
+    <div *ngFor="let column of columns" class="col">
+        {{column}}
+    </div>
+    <div class="col">
+        Actions
+    </div>
+</div>
+
+<div  class="row my-5">
+    <div *ngFor="let column of columns" class="col">
+        <input [(ngModel)]="newDrink[column]" type="text" class="form-control">
+    </div>
+    <div class="col">       
+        <button (click)="createDrink()" type="button" class="btn btn-danger ms-2">Add</button>
+    </div>
+</div>
+
+<div *ngFor="let drink of drinks" class="row my-2">
+    <div *ngFor="let column of columns" class="col">
+        <input [(ngModel)]="drink[column]" type="text" class="form-control">
+    </div>
+    <div class="col">
+        <button (click)="updateDrink(drink)" type="button" class="btn btn-warning">Update</button>
+        <button  (click)="deleteDrink(drink)" type="button" class="btn btn-danger ms-2">Delete</button>
+    </div>
+</div>
